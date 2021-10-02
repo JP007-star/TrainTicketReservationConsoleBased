@@ -1,9 +1,14 @@
+package com.project.model;
+
 public class Train {
     int trainNo;
     String trainName;
     String source;
     String destination;
     double ticketPrice;
+
+    public Train() {
+    }
 
     public Train(int trainNo, String trainName, String source, String destination, double ticketPrice) {
         this.trainNo = trainNo;
@@ -51,5 +56,16 @@ public class Train {
 
     public void setTicketPrice(double ticketPrice) {
         this.ticketPrice = ticketPrice;
+    }
+
+    @Override
+    public String toString() {
+        return "Train{" +
+                "trainNo=" + trainNo +
+                ", trainName='" + trainName + '\'' +
+                ", source='" + source + '\'' +
+                ", destination='" + destination + '\'' +
+                ", ticketPrice=" + ticketPrice +
+                '}';
     }
 }
