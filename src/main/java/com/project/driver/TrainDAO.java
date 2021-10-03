@@ -1,6 +1,6 @@
 package com.project.driver;
 
-import com.project.model.*;
+import com.project.model.Train;
 
 import java.sql.*;
 import java.util.ArrayList;

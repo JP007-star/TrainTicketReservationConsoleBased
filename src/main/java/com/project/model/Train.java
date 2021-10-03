@@ -7,9 +7,6 @@ public class Train {
     String destination;
     double ticketPrice;
 
-    public Train() {
-    }
-
     public Train(int trainNo, String trainName, String source, String destination, double ticketPrice) {
         this.trainNo = trainNo;
         this.trainName = trainName;
