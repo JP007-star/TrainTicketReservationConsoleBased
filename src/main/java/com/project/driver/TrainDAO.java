@@ -1,8 +1,7 @@
 package com.project.driver;
 
-import com.project.model.Train;
+import com.project.model.*;
 
-import java.io.FileNotFoundException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -14,9 +13,9 @@ public class TrainDAO {
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            String url = "jdbc:mysql://localhost:3306/project";
+            String url = "jdbc:mysql://localhost:3306/trainticketreservationsystem";
             String username = "root";
-            String password = "welcome";
+            String password = "Prasad@66";
             connection = DriverManager.getConnection(url, username, password);
             System.out.println("connected to DB successfully");
             Statement statement = connection.createStatement();
@@ -25,8 +24,8 @@ public class TrainDAO {
             ArrayList<Train> trainList = getTrain();
             insertUsingPreparedStatement(connection, trainList);
 
-        } catch (SQLException | ClassNotFoundException throwables) {
-            throwables.printStackTrace();
+        } catch (SQLException | ClassNotFoundException throwable) {
+            throwable.printStackTrace();
         }
 
     }
@@ -52,8 +51,6 @@ public class TrainDAO {
         public static void insertUsingPreparedStatement(Connection connection, ArrayList<Train> trainList) throws SQLException {
         String pQuery = "insert into trains values(?,?,?,?,?)";
         PreparedStatement pstat = connection.prepareStatement(pQuery);
-
-
         for (Train trains : trainList) {
             pstat.setInt(1, trains.getTrainNo());
             pstat.setString(2, trains.getTrainName());
