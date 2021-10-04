@@ -1,10 +1,9 @@
 package com.project.driver;
 import com.project.model.TrainDAO;
 
-import java.sql.SQLException;
 import java.util.Scanner;
 public class TicketApplication {
-    public static void main(String[] args) throws SQLException, ClassNotFoundException {
+    public static void main(String[] args) {
         TrainDAO trainDAO=new TrainDAO();
         Scanner scanner=new Scanner(System.in);
         System.out.println("Enter the Train Number:");

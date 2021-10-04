@@ -21,7 +21,7 @@ public class TrainDAO {
         statement = connection.createStatement();
     }
 
-    public String findTrain(int trainNO)  {
+    public Train findTrain(int trainNO)   {
         try {
             dataBaseConnection();
             String query = "select * from Trains where TRAIN_NO=" + trainNO;
@@ -33,10 +33,10 @@ public class TrainDAO {
             double trainPrice = result.getFloat("TICKET_PRICE");
             train = new Train(trainNO, trainName, source, destination, trainPrice);
         }
-        catch (SQLException | ClassNotFoundException exception){
+        catch (SQLException | ClassNotFoundException  exception){
             System.out.println("Train with given Train number does not exist!");
         }
-        return train.getTrainName();
+        return train;
     }
 }
 
