@@ -11,6 +11,7 @@ public class Passenger {
         this.gender = gender;
     }
 
+
     public String getName() {
         return name;
     }
