@@ -1,18 +1,20 @@
 package com.project.model;
 
 public class Ticket {
-    int counter;
+    int counter=100;
     String pnr;
     String travelDate;
     Train train;
+    Ticket ticket;
     Passenger passenger;
 
-    public Ticket(int counter, String pnr, String travelDate, com.project.model.Train train, Passenger passenger) {
-        this.counter = counter;
-        this.pnr = pnr;
+    public Ticket( String travelDate, com.project.model.Train train) {
         this.travelDate = travelDate;
         this.train = train;
-        this.passenger = passenger;
+    }
+
+    public Ticket() {
+
     }
 
     public int getCounter() {
@@ -53,5 +55,14 @@ public class Ticket {
 
     public void setPassenger(Passenger passenger) {
         this.passenger = passenger;
+    }
+    public String generatePNR(){
+        Ticket ticket=new Ticket(travelDate,train);
+        char source=train.getSource().charAt(0);
+        char destination=train.getDestination().charAt(0);
+        String travelDate= ticket.getTravelDate();
+        String pnrString=source+""+destination+"_"+travelDate+"_"+counter;
+        counter++;
+        return pnrString;
     }
 }

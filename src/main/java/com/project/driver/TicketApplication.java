@@ -1,6 +1,8 @@
 package com.project.driver;
 
 import com.project.model.Passenger;
+import com.project.model.Ticket;
+import com.project.model.Train;
 import com.project.model.TrainDAO;
 
 import java.text.DateFormat;
@@ -17,12 +19,15 @@ public class TicketApplication {
         Scanner scanner=new Scanner(System.in);
         System.out.println("Enter the Train Number:");
         int trainNo= Integer.parseInt(scanner.nextLine());
-        System.out.println(trainDAO.findTrain(trainNo));
-        if(trainDAO.findTrain(trainNo)!="Train with given Train number does not exist!") {
+        Train train=trainDAO.findTrain(trainNo);
+
+        if(trainDAO.findTrain(trainNo)!=null) {
             System.out.println("Enter the Travel Date:");
             String travelDate = scanner.nextLine();
             System.out.println(isDateValid(travelDate));
-            if(isDateValid(travelDate)!="TravelDate is before current date!...") {
+            Ticket ticket=new Ticket(travelDate,train);
+            System.out.println(ticket.generatePNR());
+            if(!isDateValid(travelDate).equals("TravelDate is before current date!...")) {
                 System.out.println("Enter the No of Passengers:");
                 int noOfPassengers = Integer.parseInt(scanner.nextLine());
                 for (int i = 1; i <= noOfPassengers; i++) {

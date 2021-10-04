@@ -21,7 +21,7 @@ public class TrainDAO {
         statement = connection.createStatement();
     }
 
-    public String findTrain(int trainNO)  throws NullPointerException  {
+    public Train findTrain(int trainNO)  throws NullPointerException  {
         try {
             dataBaseConnection();
             String query = "select * from Trains where TRAIN_NO=" + trainNO;
@@ -37,9 +37,9 @@ public class TrainDAO {
 
         }
         if(train==null){
-           return "Train with given Train number does not exist!";
+           return null;
         }
-        return train.toString();
+        return train;
     }
 }
 

@@ -15,6 +15,10 @@ public class Train {
         this.ticketPrice = ticketPrice;
     }
 
+    public Train() {
+
+    }
+
     public int getTrainNo() {
         return trainNo;
     }
